@@ -72,8 +72,7 @@ visitor@github:~$ ssh archive@estudiosvizcaino
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=EstudiosVizcaino&show_icons=true&hide_border=true&bg_color=05070d&title_color=38e1ff&text_color=cfe8ff&icon_color=ffb648&ring_color=38e1ff" alt="GitHub stats" height="165">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=EstudiosVizcaino&layout=compact&hide_border=true&bg_color=05070d&title_color=38e1ff&text_color=cfe8ff" alt="Top languages" height="165">
+<img src="assets/telemetry.svg" alt="GitHub telemetry — public records, primary system, stars, followers and language allocation" width="100%">
 
 <img src="https://streak-stats.demolab.com?user=EstudiosVizcaino&hide_border=true&background=05070d&ring=38e1ff&fire=ffb648&currStreakLabel=38e1ff&currStreakNum=ffb648&sideLabels=cfe8ff&sideNums=cfe8ff&dates=6f8aa8" alt="Contribution streak" height="165">
 

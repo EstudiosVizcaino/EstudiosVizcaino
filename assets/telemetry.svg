@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 220" font-family="'Segoe UI', system-ui, sans-serif" role="img" aria-label="GitHub telemetry for EstudiosVizcaino">
+  <defs>
+    <filter id="gc" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ga" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#05070d"/><rect y="3" width="4" height="1" fill="#0a1220"/>
+    </pattern>
+  </defs>
+  <rect width="830" height="220" fill="url(#scan)"/>
+  <g stroke="#38e1ff" stroke-opacity=".55" stroke-width="1.5" fill="none">
+    <path d="M10 30V10h20"/><path d="M800 10h20v20"/><path d="M10 190v20h20"/><path d="M820 190v20h-20"/>
+  </g>
+  <circle cx="46" cy="31" r="4" fill="#ffb648">
+    <animate attributeName="opacity" values="1;.25;1" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="60" y="36" font-size="13" letter-spacing="6" fill="#38e1ff" filter="url(#gc)">TELEMETRY <tspan fill="#ffb648">// LIVE FEED</tspan></text>
+  <text x="790" y="36" text-anchor="end" font-size="11" letter-spacing="3" fill="#6f8aa8">SYNC 2026-07-15</text>
+  <line x1="40" y1="52" x2="790" y2="52" stroke="#38e1ff" stroke-opacity=".22"/>
+  <text x="40" y="112" font-size="34" font-weight="700" fill="#ffb648" filter="url(#ga)" letter-spacing="2">8</text><text x="40" y="132" font-size="10" letter-spacing="4" fill="#6f8aa8">PUBLIC RECORDS</text><text x="235" y="112" font-size="34" font-weight="700" fill="#ffb648" filter="url(#ga)" letter-spacing="2">C</text><text x="235" y="132" font-size="10" letter-spacing="4" fill="#6f8aa8">PRIMARY SYSTEM</text><text x="430" y="112" font-size="34" font-weight="700" fill="#ffb648" filter="url(#ga)" letter-spacing="2">0</text><text x="430" y="132" font-size="10" letter-spacing="4" fill="#6f8aa8">STARS LOGGED</text><text x="625" y="112" font-size="34" font-weight="700" fill="#ffb648" filter="url(#ga)" letter-spacing="2">2</text><text x="625" y="132" font-size="10" letter-spacing="4" fill="#6f8aa8">FOLLOWERS</text>
+  <text x="40" y="156" font-size="10" letter-spacing="4" fill="#6f8aa8">LANGUAGE ALLOCATION</text>
+  <rect x="40.0" y="164" width="533.7" height="12" fill="#38e1ff"/><rect x="575.7" y="164" width="105.1" height="12" fill="#4a9eff"/><rect x="682.9" y="164" width="105.1" height="12" fill="#ffb648"/>
+  <text x="40" y="200" font-size="12" letter-spacing="1"><tspan fill="#38e1ff">▰</tspan> <tspan fill="#cfe8ff">C</tspan> <tspan fill="#6f8aa8">71.4%</tspan>   <tspan fill="#4a9eff">▰</tspan> <tspan fill="#cfe8ff">HTML</tspan> <tspan fill="#6f8aa8">14.3%</tspan>   <tspan fill="#ffb648">▰</tspan> <tspan fill="#cfe8ff">SHELL</tspan> <tspan fill="#6f8aa8">14.3%</tspan></text>
+</svg>
