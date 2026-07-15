@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="César Vizcaíno — Jedi Archive // Programmer · IoT Maker · IT Technician" width="100%">
+<img src="assets/banner.svg" alt="César Vizcaíno — Official Archive // Programmer · IoT Maker · IT Technician" width="100%">
 
 <br>
 
@@ -12,7 +12,7 @@
 
 ```console
 visitor@github:~$ ssh archive@estudiosvizcaino
-> ACCESS GRANTED · JEDI ARCHIVE · PERSONNEL FILE
+> ACCESS GRANTED · OFFICIAL ARCHIVE · PERSONNEL FILE
 >
 > name      César Vizcaíno
 > class     Programmer · IoT Maker · IT Technician
