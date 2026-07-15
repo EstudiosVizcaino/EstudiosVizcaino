@@ -35,7 +35,7 @@
   </g>
 
   <!-- HUD top lines -->
-  <text x="56" y="34" font-size="12" letter-spacing="6" fill="#38e1ff" filter="url(#glow-cyan)">JEDI ARCHIVE <tspan fill="#ffb648">// ACCESS GRANTED</tspan></text>
+  <text x="56" y="34" font-size="12" letter-spacing="6" fill="#38e1ff" filter="url(#glow-cyan)">OFFICIAL ARCHIVE <tspan fill="#ffb648">// ACCESS GRANTED</tspan></text>
   <text x="1144" y="34" text-anchor="end" font-size="12" letter-spacing="4" fill="#6f8aa8">PWR 98.4% · SIG ▓▓▓░
     <animate attributeName="opacity" values="1;1;.4;1" keyTimes="0;.9;.95;1" dur="7s" repeatCount="indefinite"/>
   </text>
