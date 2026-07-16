@@ -17,7 +17,7 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timezone
 
 try:
     from zoneinfo import ZoneInfo
@@ -38,7 +38,7 @@ LANG_COLOR = {
     "Python": "#9bd0ff", "JavaScript": "#ffd88a", "Makefile": MUTED,
 }
 PALETTE = [CYAN, AMBER, BLUE, "#9bd0ff", "#ffd88a", "#7ee8c7", "#c9a6ff", "#ff9d9d"]
-MAX_LANGS = 6   # top languages shown individually; the rest fold into OTHER
+MAX_LANGS = 4   # top languages shown individually; the rest fold into OTHER
 
 
 def lang_colors(langs_ranked):
@@ -66,73 +66,6 @@ def gh(url, raw=False, data=None):
         return r.read().decode() if raw else json.load(r)
 
 
-# ---------------------------------------------------------------- contributions
-def contributions_graphql():
-    query = {"query": """
-      query { user(login: "%s") { contributionsCollection {
-        contributionCalendar { totalContributions
-          weeks { contributionDays { date contributionCount } } } } } }""" % USER}
-    data = gh("https://api.github.com/graphql", data=json.dumps(query).encode())
-    cal = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
-    days = [(d["date"], d["contributionCount"])
-            for w in cal["weeks"] for d in w["contributionDays"]]
-    return days, cal["totalContributions"]
-
-
-def contributions_scrape():
-    """Fallback: parse the public contributions calendar HTML (no auth)."""
-    req = urllib.request.Request(
-        f"https://github.com/users/{USER}/contributions",
-        headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        html = r.read().decode()
-    days = []
-    for m in re.finditer(r'data-date="(\d{4}-\d{2}-\d{2})"[^>]*data-level="(\d+)"', html):
-        days.append((m.group(1), int(m.group(2))))   # level, not exact count
-    if not days:
-        raise ValueError("no contribution days parsed")
-    total = sum(int(n) for n in re.findall(r'(\d+) contributions? on', html)) or None
-    return sorted(days), total
-
-
-def streaks(days, today):
-    """(current, longest) streak of consecutive days with contributions."""
-    active = {d for d, n in days if n > 0}
-    longest = run = 0
-    prev = None
-    for d, n in days:
-        run = run + 1 if n > 0 and prev in active else (1 if n > 0 else 0)
-        if n > 0:
-            prev = d
-            longest = max(longest, run)
-        else:
-            prev = None
-    # current streak: walk back from today (a quiet today doesn't break it yet)
-    cur = 0
-    day = today
-    if day.isoformat() not in active:
-        day -= timedelta(days=1)
-    while day.isoformat() in active:
-        cur += 1
-        day -= timedelta(days=1)
-    return cur, longest
-
-
-def collect_contributions():
-    # the HTML calendar mirrors exactly what the public profile shows
-    # (including anonymized private activity if that setting is on);
-    # GraphQL is the structured fallback
-    try:
-        days, total = contributions_scrape()
-    except Exception:
-        try:
-            days, total = contributions_graphql()
-        except Exception:
-            return None
-    cur, longest = streaks(days, datetime.now(TZ).date())
-    return {"total": total, "current": cur, "longest": longest}
-
-
 # ---------------------------------------------------------------- repo stats
 def collect_live():
     repos = [r for r in gh(f"https://api.github.com/users/{USER}/repos?per_page=100&type=owner")
@@ -151,7 +84,6 @@ def collect_live():
         "stars": sum(r["stargazers_count"] for r in repos),
         "followers": user["followers"],
         "langs": langs,
-        "contrib": collect_contributions(),
     }
 
 
@@ -166,7 +98,6 @@ def collect_offline(path, followers):
         "stars": sum(r.get("stargazers_count", 0) for r in repos),
         "followers": followers,
         "langs": langs,
-        "contrib": None,
     }
 
 
@@ -198,18 +129,8 @@ def render(d):
             (str(d["followers"]), "FOLLOWERS")]):
         tiles.append(tile(40 + i * 195, 112, num, label))
 
-    y = 156                      # where the language block starts
-    if d["contrib"]:
-        c = d["contrib"]
-        row2 = [(str(c["current"]), "CURRENT STREAK · DAYS"),
-                (str(c["longest"]), "LONGEST STREAK · DAYS")]
-        if c["total"] is not None:
-            row2.append((str(c["total"]), "CONTRIBUTIONS · PAST YEAR"))
-        for i, (num, label) in enumerate(row2):
-            tiles.append(tile(40 + i * 240, 186, num, label))
-        y = 230
-
-    # language allocation bar + wrapping legend
+    # language allocation bar + single-line legend
+    y = 156
     bar_w, x = 750, 40.0
     bar, items = [], []
     for lang, share, color in segs:
@@ -218,11 +139,8 @@ def render(d):
         items.append(f'<tspan fill="{color}">▰</tspan> <tspan fill="{TEXT}">{lang.upper()}'
                      f'</tspan> <tspan fill="{MUTED}">{share * 100:.1f}%</tspan>')
         x += w
-    legend_rows = [items[i:i + 4] for i in range(0, len(items), 4)]
-    legend = ''.join(
-        f'<text x="40" y="{y + 44 + r * 19}" font-size="12" letter-spacing="1">{"   ".join(row)}</text>'
-        for r, row in enumerate(legend_rows))
-    height = y + 52 + (len(legend_rows) - 1) * 19 + 8
+    legend = f'<text x="40" y="{y + 44}" font-size="12" letter-spacing="1">{"   ".join(items)}</text>'
+    height = 220
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 {height}" font-family="'Segoe UI', system-ui, sans-serif" role="img" aria-label="GitHub activity for {USER}">
   <defs>
@@ -264,8 +182,7 @@ def main():
     with open(OUT, "w") as f:
         f.write(svg)
     print(f"wrote {os.path.normpath(OUT)} — {data['repos']} repos, "
-          f"{len(data['langs'])} languages, contrib={'ok' if data['contrib'] else 'unavailable'}, "
-          f"synced {datetime.now(timezone.utc).isoformat()}")
+          f"{len(data['langs'])} languages, synced {datetime.now(timezone.utc).isoformat()}")
 
 
 if __name__ == "__main__":
