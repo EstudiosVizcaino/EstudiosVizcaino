@@ -1,49 +1,46 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="César Vizcaíno — Official Archive // Programmer · IoT Maker · IT Technician" width="100%">
+<img src="assets/banner.svg" alt="César Vizcaíno — Programmer · IoT Maker · IT Technician" width="100%">
 
 <br>
 
-[![ENTER THE HOLOCRON](https://img.shields.io/badge/⟡_ENTER_THE_HOLOCRON-ffb648?style=for-the-badge&labelColor=05070d)](https://estudiosvizcaino.github.io/portfolio/)
+[![Portfolio](https://img.shields.io/badge/⟡_VIEW_PORTFOLIO-ffb648?style=for-the-badge&labelColor=05070d)](https://estudiosvizcaino.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-05070d?style=for-the-badge&logo=linkedin&logoColor=38e1ff)](https://linkedin.com/in/cesarvizcaino)
-[![Email](https://img.shields.io/badge/TRANSMIT-05070d?style=for-the-badge&logo=gmail&logoColor=38e1ff)](mailto:estudiosvizcaino@gmail.com)
+[![Email](https://img.shields.io/badge/EMAIL-05070d?style=for-the-badge&logo=gmail&logoColor=38e1ff)](mailto:estudiosvizcaino@gmail.com)
 
 </div>
 
-```console
-visitor@github:~$ ssh archive@estudiosvizcaino
-> ACCESS GRANTED · OFFICIAL ARCHIVE · PERSONNEL FILE
->
-> name      César Vizcaíno
-> class     Programmer · IoT Maker · IT Technician
-> system    Madrid, Spain
-> training  42 Madrid — Software Engineering (C · C++ · Bash)
-> mission   From idea to working device.
->
-> I take gadgets from "wouldn't it be cool if..." to something that
-> actually works: C/C++ firmware on ESP32, PCBs in KiCad, 3D-printed
-> enclosures, and component-level repair — phones to vending machines.
-> Off duty: teaching cybersecurity & IoT workshops, orchestra, theatre.
-```
+## About me
+
+I'm César Vizcaíno, a programmer, IoT maker and IT technician based in Madrid. I enjoy taking
+ideas all the way to working devices: writing C/C++ firmware for ESP32 and Arduino, designing
+PCBs in KiCad, modelling and 3D-printing enclosures, and repairing electronics down to the
+component level — from smartphones to vending machines.
+
+- 🎓 Software Engineering student at **42 Madrid** (C · C++ · Bash)
+- 🔌 End-to-end hardware projects: firmware, custom PCBs and 3D-printed enclosures
+- 🧑‍🏫 IT trainer — workshops on cybersecurity, IoT and 3D printing
+- 🛩️ Certified drone operator (STS)
+- 🎻 Outside of tech: orchestra and theatre
 
 <br>
 
-## ⟡ ARCHIVE RECORDS <sub><sup>// featured missions</sup></sub>
+## ⟡ Featured projects
 
-| RECORD | SYSTEM | BRIEF |
+| Project | Language | Description |
 |:--|:-:|:--|
-| [**Minishell**](https://github.com/EstudiosVizcaino/Minishell) | `C` | A small bash written from scratch — parsing, pipes, redirections, signals |
-| [**philo**](https://github.com/EstudiosVizcaino/philo) | `C` | Dining philosophers — threads, mutexes and the art of not starving |
-| [**minitalk**](https://github.com/EstudiosVizcaino/minitalk) | `C` | Client/server data exchange using nothing but UNIX signals |
-| [**GNL**](https://github.com/EstudiosVizcaino/GNL) | `C` | get_next_line — read any fd one line at a time, one static buffer |
-| [**Printf**](https://github.com/EstudiosVizcaino/Printf) | `C` | printf, rebuilt from scratch |
-| [**Jedi Archive**](https://estudiosvizcaino.github.io/portfolio/) | `JS` | This profile's big brother — a WebGL holocron with its own soundtrack |
+| [**Minishell**](https://github.com/EstudiosVizcaino/Minishell) | `C` | A small bash-like shell built from scratch: parsing, pipes, redirections and signal handling |
+| [**philo**](https://github.com/EstudiosVizcaino/philo) | `C` | The dining philosophers problem — threads, mutexes and deadlock prevention |
+| [**minitalk**](https://github.com/EstudiosVizcaino/minitalk) | `C` | Client/server data exchange implemented exclusively with UNIX signals |
+| [**GNL**](https://github.com/EstudiosVizcaino/GNL) | `C` | get_next_line — reading any file descriptor one line at a time with a single static buffer |
+| [**Printf**](https://github.com/EstudiosVizcaino/Printf) | `C` | A reimplementation of printf |
+| [**Portfolio**](https://estudiosvizcaino.github.io/portfolio/) | `JS` | My interactive portfolio — WebGL, generative audio and a live GitHub feed |
 
-> ⟢ Hardware missions — smart intercoms, BLE sheet-music pedals, self-hosted DNS — are projected in the [**full holocron archive →**](https://estudiosvizcaino.github.io/portfolio/)
+> Hardware work — a smart building intercom, a BLE sheet-music page-turner pedal, a self-hosted DNS server — is showcased on [**my portfolio →**](https://estudiosvizcaino.github.io/portfolio/)
 
 <br>
 
-## ⟡ SKILL MATRIX
+## ⟡ Tech stack
 
 <div align="center">
 
@@ -68,11 +65,11 @@ visitor@github:~$ ssh archive@estudiosvizcaino
 
 <br>
 
-## ⟡ TELEMETRY
+## ⟡ GitHub activity
 
 <div align="center">
 
-<img src="assets/telemetry.svg" alt="GitHub telemetry — public records, primary system, stars, followers and language allocation" width="100%">
+<img src="assets/telemetry.svg" alt="GitHub activity — public repos, top language, stars, followers and language breakdown" width="100%">
 
 <img src="https://streak-stats.demolab.com?user=EstudiosVizcaino&hide_border=true&background=05070d&ring=38e1ff&fire=ffb648&currStreakLabel=38e1ff&currStreakNum=ffb648&sideLabels=cfe8ff&sideNums=cfe8ff&dates=6f8aa8" alt="Contribution streak" height="165">
 
@@ -82,6 +79,6 @@ visitor@github:~$ ssh archive@estudiosvizcaino
 
 <div align="center">
 
-`ARCHIVE RECORD ENDS` **//** `CÉSAR VIZCAÍNO · MADRID` **//** `MMXXVI`
+`CÉSAR VIZCAÍNO` **·** `MADRID, SPAIN` **·** [`estudiosvizcaino.github.io/portfolio`](https://estudiosvizcaino.github.io/portfolio/)
 
 </div>

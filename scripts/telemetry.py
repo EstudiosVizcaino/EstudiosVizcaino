@@ -94,9 +94,9 @@ def render(d):
                       + ("   " if i < len(segs) - 1 else ""))
         x += w
     stats = [
-        (str(d["repos"]), "PUBLIC RECORDS"),
-        (primary.upper(), "PRIMARY SYSTEM"),
-        (str(d["stars"]), "STARS LOGGED"),
+        (str(d["repos"]), "PUBLIC REPOS"),
+        (primary.upper(), "TOP LANGUAGE"),
+        (str(d["stars"]), "STARS"),
         (str(d["followers"]), "FOLLOWERS"),
     ]
     tiles = []
@@ -107,7 +107,7 @@ def render(d):
             f'filter="url(#ga)" letter-spacing="2">{num}</text>'
             f'<text x="{cx}" y="132" font-size="10" letter-spacing="4" fill="{MUTED}">{label}</text>')
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 220" font-family="'Segoe UI', system-ui, sans-serif" role="img" aria-label="GitHub telemetry for {USER}">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 220" font-family="'Segoe UI', system-ui, sans-serif" role="img" aria-label="GitHub activity for {USER}">
   <defs>
     <filter id="gc" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -126,11 +126,11 @@ def render(d):
   <circle cx="46" cy="31" r="4" fill="{AMBER}">
     <animate attributeName="opacity" values="1;.25;1" dur="2.4s" repeatCount="indefinite"/>
   </circle>
-  <text x="60" y="36" font-size="13" letter-spacing="6" fill="{CYAN}" filter="url(#gc)">TELEMETRY <tspan fill="{AMBER}">// LIVE FEED</tspan></text>
-  <text x="790" y="36" text-anchor="end" font-size="11" letter-spacing="3" fill="{MUTED}">SYNC {sync}</text>
+  <text x="60" y="36" font-size="13" letter-spacing="6" fill="{CYAN}" filter="url(#gc)">GITHUB ACTIVITY <tspan fill="{AMBER}">// UPDATED DAILY</tspan></text>
+  <text x="790" y="36" text-anchor="end" font-size="11" letter-spacing="3" fill="{MUTED}">{sync}</text>
   <line x1="40" y1="52" x2="790" y2="52" stroke="{CYAN}" stroke-opacity=".22"/>
   {''.join(tiles)}
-  <text x="40" y="156" font-size="10" letter-spacing="4" fill="{MUTED}">LANGUAGE ALLOCATION</text>
+  <text x="40" y="156" font-size="10" letter-spacing="4" fill="{MUTED}">LANGUAGE BREAKDOWN</text>
   {''.join(bar)}
   <text x="40" y="200" font-size="12" letter-spacing="1">{''.join(legend)}</text>
 </svg>
