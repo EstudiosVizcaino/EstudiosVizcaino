@@ -119,11 +119,14 @@ def streaks(days, today):
 
 
 def collect_contributions():
+    # the HTML calendar mirrors exactly what the public profile shows
+    # (including anonymized private activity if that setting is on);
+    # GraphQL is the structured fallback
     try:
-        days, total = contributions_graphql()
+        days, total = contributions_scrape()
     except Exception:
         try:
-            days, total = contributions_scrape()
+            days, total = contributions_graphql()
         except Exception:
             return None
     cur, longest = streaks(days, datetime.now(TZ).date())
