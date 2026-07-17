@@ -88,7 +88,7 @@
 
   <!-- typed tagline + caret -->
   <g font-family="ui-monospace, 'Cascadia Mono', 'Courier New', monospace">
-    <text x="314" y="244" font-size="24" letter-spacing="6" fill="#38e1ff" clip-path="url(#typeclip)" filter="url(#glow-cyan)">FROM IDEA TO WORKING DEVICE.</text>
+    <text x="314" y="244" font-size="24" letter-spacing="6" fill="#38e1ff" clip-path="url(#typeclip)" filter="url(#glow-cyan)">FROM IDEA TO WORKING DEVICE</text>
     <rect y="224" width="12" height="24" fill="#38e1ff">
       <animate attributeName="x" begin="1.2s" dur="2.2s" fill="freeze" calcMode="discrete"
         values="316;352;388;424;460;496;532;568;604;640;676;712;748;784;820;856;892"/>
