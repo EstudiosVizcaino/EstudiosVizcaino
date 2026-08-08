@@ -17,7 +17,7 @@ ideas all the way to working devices: writing C/C++ firmware for ESP32 and Ardui
 PCBs in KiCad, modelling and 3D-printing enclosures, and repairing electronics down to the
 component level — from smartphones to vending machines.
 
-- 🎓 Software Engineering student at **42 Madrid** (C · C++ · Python · Bash)
+- 🎓 Software Engineering student at **42 Madrid** (C · C++ · Python · Java · Bash)
 - 🔌 End-to-end hardware projects: firmware, PCBs, embedded systems and 3D-printed enclosures
 - 🧑‍🏫 IT trainer — workshops on cybersecurity, IoT and 3D printing
 - 🛩️ Certified technical inspections drone operator (STS)
