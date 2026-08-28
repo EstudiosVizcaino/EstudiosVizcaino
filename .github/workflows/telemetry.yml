@@ -8,6 +8,11 @@ on:
 permissions:
   contents: write
 
+# two overlapping runs both commit to main and the second one loses the race
+concurrency:
+  group: telemetry
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -19,9 +24,40 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/telemetry.py
 
+      - name: Regenerate commit rhythm panel
+        env:
+          # STATS_TOKEN is a personal access token with Contents: Read-only; it
+          # is what lets the panel count commits in private repos. Without the
+          # secret this falls back to the default token and counts public repos
+          # only, labelling itself accordingly.
+          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+          # fail the run rather than silently drop back to public-only counts
+          EXPECT_PRIVATE: ${{ secrets.STATS_TOKEN != '' && '1' || '0' }}
+        run: python3 scripts/rhythm.py
+
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/telemetry.svg
-          git diff --cached --quiet || { git commit -m "telemetry: daily sync"; git push; }
+          git add assets/telemetry.svg assets/rhythm.svg
+
+          if git diff --cached --quiet; then
+            echo "panels unchanged — nothing to commit"
+            exit 0
+          fi
+          git commit -m "telemetry: daily sync"
+
+          # The checkout is pinned to the SHA the run started from, so main can
+          # have moved on — always, if you re-run an older run from the Actions
+          # tab. A plain push is then rejected as non-fast-forward. Rebase onto
+          # whatever main is now and try again.
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected (attempt $attempt) — rebasing onto latest main"
+            git pull --rebase origin main
+          done
+
+          echo "push still failing after 3 attempts" >&2
+          exit 1
