@@ -6,7 +6,7 @@
 
 [![Portfolio](https://img.shields.io/badge/⟡_VIEW_PORTFOLIO-ffb648?style=for-the-badge&labelColor=05070d)](https://estudiosvizcaino.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-05070d?style=for-the-badge&logo=linkedin&logoColor=38e1ff)](https://linkedin.com/in/cesarvizcaino)
-[![Email](https://img.shields.io/badge/EMAIL-05070d?style=for-the-badge&logo=gmail&logoColor=38e1ff)](mailto:estudiosvizcaino@gmail.com)
+[![Email](https://img.shields.io/badge/EMAIL-05070d?style=for-the-badge&logo=gmail&logoColor=38e1ff)](mailto:contacto@estudiosvizcaino.com)
 
 </div>
 
