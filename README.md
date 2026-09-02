@@ -37,7 +37,7 @@ component level — from smartphones to vending machines.
 | [**Printf**](https://github.com/EstudiosVizcaino/Printf) | `C` | A reimplementation of printf |
 | [**Portfolio**](https://estudiosvizcaino.github.io/portfolio/) | `JS` | My interactive portfolio — WebGL, generative audio and a live GitHub feed |
 
-> Hardware work —> a smart building intercom, a BLE sheet-music page-turner pedal, a self-hosted DNS server. All showcased on [**my portfolio →**](https://estudiosvizcaino.github.io/portfolio/)
+> Hardware work — a smart building intercom, a BLE sheet-music page-turner pedal, a self-hosted DNS server — is showcased on [**my portfolio →**](https://estudiosvizcaino.github.io/portfolio/)
 
 <br>
 
@@ -84,9 +84,7 @@ component level — from smartphones to vending machines.
 
 <img src="https://streak-stats.demolab.com?user=EstudiosVizcaino&hide_border=true&background=05070d&ring=38e1ff&fire=ffb648&currStreakLabel=38e1ff&currStreakNum=ffb648&sideLabels=cfe8ff&sideNums=cfe8ff&dates=6f8aa8" alt="Contribution streak" height="165">
 
-<br><br>
-
-<img src="assets/rhythm.svg" alt="Commit rhythm — every commit I have authored, bucketed by weekday and hour in Madrid local time" width="100%">
+<img src="assets/rhythm.svg" alt="Commit rhythm — my commits bucketed by weekday and hour in Madrid local time" width="100%">
 
 </div>
 
